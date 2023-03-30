@@ -1,0 +1,193 @@
+body {
+  margin-bottom: 60px;
+  background: url(fon.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 35% 5%;
+}
+
+.form_input_custom {
+  height: 55px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+  color: #0d5efd;
+  font-size: 20px;
+}
+.form_input_custom input {
+  width: 100%;
+  height: 100%;
+  padding: 0.2em 0.5em;
+  color: #051a50;
+  padding-top: 10px;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  background: transparent;
+}
+.form_input_custom label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 1px;
+  left: 0%;
+  pointer-events: none;
+  border-bottom: 2px solid #5993fda1;
+}
+.form_input_custom label::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid #0d6efd;
+  bottom: -1px;
+  left: 0px;
+  transform: translateX(-100%);
+  transition: all 0.3s cubic-bezier(0, 0.3, 0, 0.39);
+  filter: blur(1px);
+}
+.content_name_input {
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  transition: all 0.2s ease;
+}
+.form_input_custom input:focus + .label_name_input .content_name_input,
+.form_input_custom input:valid + .label_name_input .content_name_input {
+  transform: translateY(-150%);
+  font-size: 14px;
+  color: #155cc5;
+}
+.form_input_custom input:focus + .label_name_input::after,
+.form_input_custom input:valid + .label_name_input::after {
+  transform: translateX(0%);
+}
+
+.sel {
+  height: 55px;
+  margin: 2em 1em;
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.sel__placeholder {
+  display: block;
+  font-size: 24px;
+  color: #051a50;
+  padding: 1em 0.5em;
+  text-align: left;
+  pointer-events: none;
+  user-select: none;
+  visibility: visible;
+}
+
+.sel.active .sel__placeholder {
+  visibility: hidden;
+}
+
+.sel__placeholder::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1em 0.5em;
+  content: attr(data-placeholder);
+  visibility: hidden;
+}
+
+.sel.active .sel__placeholder::before {
+  visibility: visible;
+}
+
+.sel__box {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: -4px;
+  display: none;
+  list-style-type: none;
+  text-align: left;
+  font-size: 1em;
+  background-color: #b9cdf885;
+  width: calc(100% + 8px);
+  box-sizing: border-box;
+}
+
+.sel.active .sel__box {
+  display: block;
+  animation: fadeInUp 1350ms;
+}
+
+.sel__box__options {
+  display: list-item;
+  font-size: 1.5em;
+  color: #051a50;
+  padding: 0.5em 1em;
+  user-select: none;
+}
+
+.sel__box__options:hover {
+  background-color: #99bbfe;
+}
+
+.sel label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 1px;
+  left: 0%;
+  pointer-events: none;
+  border-bottom: 2px solid #5993fda1;
+}
+.sel label::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid #0d6efd;
+  bottom: -1px;
+  left: 0px;
+  transform: translateX(-100%);
+  transition: all 0.3s cubic-bezier(0, 0.3, 0, 0.39);
+  filter: blur(1px);
+}
+.content_name_select {
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  transition: all 0.2s ease;
+}
+.sel select:focus + .label_name_select .content_name_select,
+.sel select:valid + .label_name_select .content_name_select {
+  transform: translateY(-150%);
+  font-size: 14px;
+  color: #155cc5;
+}
+.sel select:focus + .label_name_select::after,
+.sel select:valid + .label_name_select::after {
+  transform: translateX(0%);
+}
+
+/* ===== Keyframes ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
